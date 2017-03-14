@@ -5,13 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { AuthorizeGuard } from '../guards/authorize.guard';
+import { LoginService } from '../services/login.service';
+
 import { AppComponent } from '../components/app/app.component';
 import { LoginComponent } from '../components/login/login.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { ColaboradoresComponent } from '../components/colaboradores/colaboradores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    ColaboradoresComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +26,10 @@ import { LoginComponent } from '../components/login/login.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    AuthorizeGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
